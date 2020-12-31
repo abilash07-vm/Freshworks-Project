@@ -58,7 +58,7 @@ public class Crud {
         if(isFileAlreadyPresent()){
             parentJson.putAll(readJson());
         }
-        if(isFileLessThan1GB(Path.of(filename),json.toJSONString().getBytes().length+10))
+        if(details.size()==0 || isFileLessThan1GB(Path.of(filename),json.toJSONString().getBytes().length+10))
         Files.write(Path.of(filename),parentJson.toJSONString().getBytes());
 
     }
